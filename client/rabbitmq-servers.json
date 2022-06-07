@@ -1,0 +1,14 @@
+[
+  {
+    "hash": 0,
+    "ip": "rabbitmq1"
+  },
+  {
+    "hash": 1,
+    "ip": "rabbitmq2"
+  },
+  {
+    "hash": 2,
+    "ip": "rabbitmq3"
+  }
+]

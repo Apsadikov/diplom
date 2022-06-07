@@ -1,0 +1,154 @@
+html, body {
+    width: 100vw;
+    font-family: sans-serif;
+    height: 100vh;
+    scroll-behavior: auto;
+    scroll-behavior: smooth;
+
+}
+
+.login-wrapper {
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login {
+    background: #fff;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.username {
+    text-align: center;
+    margin-bottom: 20px;
+    outline: none;
+    font-size: 22px;
+    border: none;
+}
+
+.connect {
+    outline: none;
+    border: none;
+    color: #000;
+    font-size: 22px;
+    font-weight: 600;
+    background: #fff;
+}
+
+.server {
+    font-weight: 600;
+    text-align: center;
+}
+
+.header {
+    font-weight: 600;
+    padding: 20px;
+    font-size: 22px;
+    border-bottom: 1px solid #ccc;
+}
+
+.messenger-wrapper {
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.messenger {
+    display: flex;
+    height: calc(100% - 63px);
+}
+
+.users {
+    flex: 2;
+    overflow: auto;
+    height: 100%;
+    border-right: 1px solid #ccc;
+}
+
+.user {
+    padding: 20px;
+    font-weight: 600;
+    border-bottom: 1px solid #ccc;
+    font-size: 22px;
+}
+
+.dialog {
+    flex: 8;
+    flex-direction: column;
+    display: flex;
+    box-sizing: border-box;
+}
+
+.messages {
+    flex: 1;
+    overflow: auto;
+    height: calc(100% - 63px);
+    padding-bottom: 20px;
+}
+
+.message-left {
+    max-width: 50%;
+    min-width: 10px;
+    margin-left: 20px;
+    font-size: 22px;
+    margin-right: auto;
+    color: #fff;
+    background: rgb(36, 31, 222);
+    margin-top: 20px;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 10px;
+    background: linear-gradient(49deg, rgba(36, 31, 222, 1) 0%, rgba(215, 46, 98, 1) 100%);
+}
+
+.message {
+    display: flex;
+}
+
+.message-right {
+    margin-top: 20px;
+    display: inline-block;
+    max-width: 50%;
+    min-width: 10px;
+    margin-left: auto;
+    border-radius: 5px;
+    font-size: 22px;
+    padding: 10px;
+    color: #fff;
+    background: rgb(216, 67, 235);
+    background: linear-gradient(231deg, rgba(216, 67, 235, 1) 0%, rgba(215, 46, 98, 1) 100%);
+    margin-right: 20px;
+}
+
+.message-box {
+    height: 63px;
+    display: flex;
+    border-top: 1px solid #ccc;
+}
+
+.message-text {
+    font-size: 22px;
+    padding: 0 20px;
+    flex: 1;
+    border: none;
+    outline: none;
+}
+
+.send {
+    background: #fff;
+    font-weight: 600;
+    font-size: 22px;
+    padding: 0 20px;
+    border: none;
+    outline: none;
+}

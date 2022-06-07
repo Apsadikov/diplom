@@ -1,0 +1,75 @@
+version: "3.8"
+services:
+  rabbitmq1:
+    container_name: "rabbitmq1"
+    image: rabbitmq:3.8-management-alpine
+    environment:
+      - RABBITMQ_DEFAULT_USER=myuser
+      - RABBITMQ_DEFAULT_PASS=mypassword
+    ports:
+      - '5673:5672'
+      - '15673:15672'
+  rabbitmq2:
+    container_name: "rabbitmq2"
+    image: rabbitmq:3.8-management-alpine
+    environment:
+      - RABBITMQ_DEFAULT_USER=myuser
+      - RABBITMQ_DEFAULT_PASS=mypassword
+    ports:
+      - '5674:5672'
+      - '15674:15672'
+  rabbitmq3:
+    container_name: "rabbitmq3"
+    image: rabbitmq:3.8-management-alpine
+    environment:
+      - RABBITMQ_DEFAULT_USER=myuser
+      - RABBITMQ_DEFAULT_PASS=mypassword
+    ports:
+      - '5675:5672'
+      - '15675:15672'
+  client:
+    container_name: "client"
+    build: ./client/
+    ports:
+      - "3000:3000"
+    environment:
+      - POST=3000
+  server1:
+    depends_on:
+      - client
+      - rabbitmq1
+      - rabbitmq2
+      - rabbitmq3
+    container_name: "server1"
+    build: ./server/
+    ports:
+      - "3001:3001"
+    environment:
+      - PORT=3001
+      - HASH=0
+  server2:
+    depends_on:
+      - client
+      - rabbitmq1
+      - rabbitmq2
+      - rabbitmq3
+    container_name: "server2"
+    build: ./server/
+    ports:
+      - "3002:3002"
+    environment:
+      - PORT=3002
+      - HASH=1
+  server3:
+    depends_on:
+      - client
+      - rabbitmq1
+      - rabbitmq2
+      - rabbitmq3
+    container_name: "server3"
+    build: ./server/
+    ports:
+      - "3003:3003"
+    environment:
+      - PORT=3003
+      - HASH=2
