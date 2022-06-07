@@ -47,6 +47,8 @@ services:
     environment:
       - PORT=3001
       - HASH=0
+      - RABBITMQUSER=myuser
+      - RABBITMQPASSWORD=mypassword
   server2:
     depends_on:
       - client
@@ -60,6 +62,8 @@ services:
     environment:
       - PORT=3002
       - HASH=1
+      - RABBITMQUSER=myuser
+      - RABBITMQPASSWORD=mypassword
   server3:
     depends_on:
       - client
@@ -73,3 +77,5 @@ services:
     environment:
       - PORT=3003
       - HASH=2
+      - RABBITMQUSER=myuser
+      - RABBITMQPASSWORD=mypassword

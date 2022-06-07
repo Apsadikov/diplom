@@ -4,9 +4,10 @@ let serverHash = process.env.HASH;
 let rabbitMqConnections = [];
 let servers = [];
 const EXCHANGE_NAME = "chat";
+const SERVERS_INFO = "http://client:3000/servers";
 
 async function getRabbitMQServers() {
-    let response = await got("http://client:3000/servers");
+    let response = await got(SERVERS_INFO);
     servers = JSON.parse(response.body);
     return servers;
 }
@@ -26,12 +27,12 @@ module.exports.sendMessageAll = function (message) {
     }
 }
 
-let user = "myuser";
-let password = "mypassword";
+let user = process.env.RABBITMQUSER;
+let password = process.env.RABBITMQPASSWORD;
 module.exports.createRabbitMqProducerConnection = async function (callback) {
     await getRabbitMQServers();
     let server = servers.filter(server => server.hash === parseInt(serverHash))[0];
-    amqp.connect('amqp://' + user + ':' + password + '@' + server.ip + ':5672', function (error0, connection) {
+    amqp.connect('amqp://' + user + ':' + password + '@' + server.ip + ':' + server.port, function (error0, connection) {
         if (error0) {
             throw error0;
         }

@@ -61,7 +61,7 @@ function createWebSocketConnection(userId, ip, port) {
 }
 
 function test(userId) {
-    for (let i = 0; i < 1000; i++) {
+    for (let i = 0; i < 100; i++) {
         setTimeout(() => {
             messageText.value = "test " + i;
             sendMessage();
@@ -87,7 +87,7 @@ function sendMessage() {
 function receiveMessage(userId, text) {
     userId = parseInt(userId);
     if (currentUserId && userId === currentUserId) {
-        messageList.innerHTML += '  <div class="message-left">' + text + '</div>';
+        messageList.innerHTML += '<div class="message"><div class="message-left">' + text + '</div></div>';
     }
 }
 
@@ -121,7 +121,6 @@ function userLeave(userId) {
 
 function userJoin(userId, userName) {
     if (parseInt(userId) === parseInt(document.querySelector('meta[name="user-id"]').content)) {
-        console.log("ok");
         return;
     }
     userLeave(userId);

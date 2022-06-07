@@ -1,14 +1,17 @@
 [
   {
     "hash": 0,
-    "ip": "rabbitmq1"
+    "ip": "rabbitmq1",
+    "port": 5672
   },
   {
     "hash": 1,
-    "ip": "rabbitmq2"
+    "ip": "rabbitmq2",
+    "port": 5672
   },
   {
     "hash": 2,
-    "ip": "rabbitmq3"
+    "ip": "rabbitmq3",
+    "port": 5672
   }
 ]
